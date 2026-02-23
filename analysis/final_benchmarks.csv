@@ -1,0 +1,18 @@
+query,type,success,sql,answer,latency_sec,row_count,error
+Show me the top 5 products by price,Simple,True,"SELECT name, price FROM Products ORDER BY price DESC LIMIT 5;","The top 3 products by price are as follows:
+
+1. **Laptop** - $1,200.00
+2. **Smartphone** - $699.99
+3. **T-Shirt** - $19.99
+
+Please note that only three products were available in the dataset.",6.152,3,None
+How many users are there from 'USA'?,Simple,True,SELECT COUNT(*) FROM Users WHERE country = 'USA';,There is 1 user from the USA.,3.761,1,None
+What is the total revenue from all orders?,Simple,True,SELECT SUM(total_amount) FROM Orders;,"The total revenue from all orders is $1,919.98.",4.201,1,None
+Show top 5 users by total spend who joined in 2023 and have at least 1 orders,Complex (Join + Agg + Filter),True,"SELECT u.username, SUM(o.total_amount) as total_spend 
+FROM Users u 
+JOIN Orders o ON u.user_id = o.user_id 
+WHERE u.created_at BETWEEN '2023-01-01 00:00:00' AND '2023-12-31 23:59:59' 
+GROUP BY u.user_id 
+HAVING COUNT(o.order_id) > 0 
+ORDER BY total_spend DESC 
+LIMIT 5;",The query returned no records matching the criteria. This indicates that there are currently no users who joined in 2023 and have made at least one order.,7.419,0,None
