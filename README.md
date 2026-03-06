@@ -65,7 +65,7 @@ User Query
 
 ```bash
 git clone <your-repo-url>
-cd neo_project_temp
+cd text-to-sql-agent
 
 python -m venv venv
 # Windows
@@ -117,7 +117,7 @@ Results are saved to `analysis/dml_benchmark_results.csv`.
 ## Project Structure
 
 ```
-neo_project_temp/
+text-to-sql-agent/
 ├── agent.py          # Main LlamaIndex Workflow (7-step pipeline)
 ├── schema.py         # Uber-style SchemaRetriever
 ├── prompts.py        # System prompt, security prompt, few-shot examples
@@ -196,7 +196,7 @@ Neo is built for:
 
 **Install Neo:**
 1. Open VS Code
-2. Go to Extensions → search `NeoResearchInc.heyneo`
+2. Go to Extensions → Search for `Neo AI` or directly install from marketplace: [Neo VS Code Extension](https://marketplace.visualstudio.com/items?itemName=NeoResearchInc.heyneo)
 3. Install and authenticate
 
 **Build this project from scratch with Neo:**
